@@ -1,469 +1,467 @@
 <!doctype html>
-<html lang="id">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Katalog Lelang — KPKNL Style</title>
-  <style>
-    :root{
-      --kpknl-blue:#0b3b6f;
-      --kpknl-green:#1e8449;
-      --muted:#e6eef6;
-      --card:#ffffff;
-      --text:#1b1b1b;
-      --gap:16px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background: #f7f9fb; color:var(--text);
-    }
 
-    /* HEADER (KPKNL style) */
-    header{
-      background:var(--card);
-      border-bottom:4px solid var(--muted);
-      padding:18px 20px;
-      display:flex;
-      gap:16px;
-      align-items:center;
-    }
-    header .brand{
-      display:flex; gap:14px; align-items:center;
-    }
+<html lang="id">  
+<head>  
+  <meta charset="utf-8" />  
+  <meta name="viewport" content="width=device-width,initial-scale=1" />  
+  <title>Katalog Lelang — KPKNL Style</title>  
+  <style>  
+    :root{  
+      --kpknl-blue:#0b3b6f;  
+      --kpknl-green:#1e8449;  
+      --muted:#e6eef6;  
+      --card:#ffffff;  
+      --text:#1b1b1b;  
+      --gap:16px;  
+    }  
+    *{box-sizing:border-box}  
+    body{  
+      margin:0; font-family: "Segoe UI", Roboto, Arial, sans-serif;  
+      background: #f7f9fb; color:var(--text);  
+    }  /* HEADER (KPKNL style) */  
+header{  
+  background:var(--card);  
+  border-bottom:4px solid var(--muted);  
+  padding:18px 20px;  
+  display:flex;  
+  gap:16px;  
+  align-items:center;  
+}  
+header .brand{  
+  display:flex; gap:14px; align-items:center;  
+}  
 
-    /* LOGO DJKN */
-    header .logo{
-      width:86px; height:86px; background:#fff;
-      display:flex; align-items:center; justify-content:center; border-radius:10px;
-      border:2px solid var(--kpknl-blue);
-      overflow:hidden;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    }
-    header .logo img{
-      width:100%; height:100%; object-fit:contain;
-    }
+/* LOGO DJKN */  
+header .logo{  
+  width:86px; height:86px; background:#fff;  
+  display:flex; align-items:center; justify-content:center; border-radius:10px;  
+  border:2px solid var(--kpknl-blue);  
+  overflow:hidden;  
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);  
+}  
+header .logo img{  
+  width:100%; height:100%; object-fit:contain;  
+}  
 
-    header h1{ margin:0; font-size:18px; color:var(--kpknl-blue); text-transform:uppercase; }
-    header p{ margin:0; color:#3b556e; font-size:13px }
+header h1{ margin:0; font-size:18px; color:var(--kpknl-blue); text-transform:uppercase; }  
+header p{ margin:0; color:#3b556e; font-size:13px }  
 
-    /* NAV */
-    .nav{
-      display:flex;
-      gap:10px;
-      padding:12px 20px;
-      align-items:center;
-      background:linear-gradient(90deg,var(--muted),transparent);
-    }
-    .nav button{
-      border:0; background:none; padding:8px 12px; border-radius:8px; cursor:pointer;
-      font-weight:700; color:var(--kpknl-blue);
-    }
-    .nav button.active{
-      background:var(--kpknl-blue); color:#fff; box-shadow:0 2px 6px rgba(11,59,111,0.12)
-    }
+/* NAV */  
+.nav{  
+  display:flex;  
+  gap:10px;  
+  padding:12px 20px;  
+  align-items:center;  
+  background:linear-gradient(90deg,var(--muted),transparent);  
+}  
+.nav button{  
+  border:0; background:none; padding:8px 12px; border-radius:8px; cursor:pointer;  
+  font-weight:700; color:var(--kpknl-blue);  
+}  
+.nav button.active{  
+  background:var(--kpknl-blue); color:#fff; box-shadow:0 2px 6px rgba(11,59,111,0.12)  
+}  
 
-    main{ padding:22px; max-width:1100px; margin:0 auto; }
+main{ padding:22px; max-width:1100px; margin:0 auto; }  
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:var(--gap);
-      margin-top:14px;
-    }
+.grid{  
+  display:grid;  
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));  
+  gap:var(--gap);  
+  margin-top:14px;  
+}  
 
-    .card{
-      background:var(--card);
-      border:1px solid #e6eef6;
-      border-radius:10px;
-      overflow:hidden;
-      display:flex; flex-direction:column;
-      box-shadow:0 2px 8px rgba(15,40,80,0.04);
-    }
-    .card img{ width:100%; height:160px; object-fit:cover; display:block; background:#efefef }
-    .card .body{ padding:12px; display:flex; flex-direction:column; gap:8px; flex:1 }
-    .card .title{ font-weight:700; color:var(--kpknl-blue); font-size:15px }
-    .card .desc{ font-size:13px; color:#586574 }
-    .card .price{ margin-top:auto; font-weight:800; color:var(--kpknl-green) }
-    .card .actions{ display:flex; gap:8px; margin-top:8px }
-    .btn{ border:0; padding:8px 10px; border-radius:8px; cursor:pointer; font-weight:700 }
-    .btn.primary{ background:var(--kpknl-blue); color:#fff }
-    .btn.ghost{ background:transparent; border:1px solid #dbeaf5; color:var(--kpknl-blue) }
+.card{  
+  background:var(--card);  
+  border:1px solid #e6eef6;  
+  border-radius:10px;  
+  overflow:hidden;  
+  display:flex; flex-direction:column;  
+  box-shadow:0 2px 8px rgba(15,40,80,0.04);  
+}  
+.card img{ width:100%; height:160px; object-fit:cover; display:block; background:#efefef }  
+.card .body{ padding:12px; display:flex; flex-direction:column; gap:8px; flex:1 }  
+.card .title{ font-weight:700; color:var(--kpknl-blue); font-size:15px }  
+.card .desc{ font-size:13px; color:#586574 }  
+.card .price{ margin-top:auto; font-weight:800; color:var(--kpknl-green) }  
+.card .actions{ display:flex; gap:8px; margin-top:8px }  
+.btn{ border:0; padding:8px 10px; border-radius:8px; cursor:pointer; font-weight:700 }  
+.btn.primary{ background:var(--kpknl-blue); color:#fff }  
+.btn.ghost{ background:transparent; border:1px solid #dbeaf5; color:var(--kpknl-blue) }  
 
-    /* Modal */
-    .modal{
-      position:fixed; inset:0; display:none; align-items:center; justify-content:center;
-      background:rgba(6,17,34,0.45); z-index:9999; padding:20px;
-    }
-    .modal .panel{
-      width:100%; max-width:980px; background:#fff; border-radius:10px;
-      overflow:hidden; display:flex; gap:12px; min-height:320px;
-    }
-    .modal .left{ flex:1; min-width:320px; display:flex; align-items:center; justify-content:center; background:#f8fbff; padding:18px }
-    .modal img{ max-width:100%; max-height:420px; object-fit:contain; border-radius:6px; }
-    .modal .right{ flex:1.1; padding:18px; display:flex; flex-direction:column; gap:8px; }
-    .modal .title{ font-size:18px; font-weight:800; color:var(--kpknl-blue) }
-    .modal .price{ font-weight:900; color:var(--kpknl-green); font-size:16px }
-    .specs{ font-size:14px; color:#3b556e; line-height:1.45; margin-top:6px; white-space:pre-wrap }
-    .modal .close{ margin-left:auto; background:#eee; border:0; padding:8px 12px; border-radius:8px; cursor:pointer }
+/* Modal */  
+.modal{  
+  position:fixed; inset:0; display:none; align-items:center; justify-content:center;  
+  background:rgba(6,17,34,0.45); z-index:9999; padding:20px;  
+}  
+.modal .panel{  
+  width:100%; max-width:980px; background:#fff; border-radius:10px;  
+  overflow:hidden; display:flex; gap:12px; min-height:320px;  
+}  
+.modal .left{ flex:1; min-width:320px; display:flex; align-items:center; justify-content:center; background:#f8fbff; padding:18px }  
+.modal img{ max-width:100%; max-height:420px; object-fit:contain; border-radius:6px; }  
+.modal .right{ flex:1.1; padding:18px; display:flex; flex-direction:column; gap:8px; }  
+.modal .title{ font-size:18px; font-weight:800; color:var(--kpknl-blue) }  
+.modal .price{ font-weight:900; color:var(--kpknl-green); font-size:16px }  
+.specs{ font-size:14px; color:#3b556e; line-height:1.45; margin-top:6px; white-space:pre-wrap }  
+.modal .close{ margin-left:auto; background:#eee; border:0; padding:8px 12px; border-radius:8px; cursor:pointer }  
 
-    /* responsive */
-    @media(max-width:840px){
-      .modal .panel{ flex-direction:column; max-width:640px }
-      header{ flex-direction:column; align-items:flex-start; gap:8px }
-      header .logo{ width:74px;height:74px }
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <div class="brand">
-    <div class="logo" aria-hidden="true">
-      <img src="djkn.jpg" alt="Logo DJKN">
-    </div>
-    <div>
-      <h1>KEMENTERIAN KEUANGAN - KPKNL</h1>
-      <p>Kantor Pelayanan Kekayaan Negara dan Lelang</p>
-    </div>
-  </div>
-</header>
-
-<nav class="nav" role="navigation" aria-label="Kategori">
-  <button class="tab-btn active" data-cat="emas">Emas</button>
-  <button class="tab-btn" data-cat="mobil">Mobil</button>
-  <button class="tab-btn" data-cat="tas">Tas Branded</button>
-  <button class="tab-btn" data-cat="jam">Jam Tangan</button>
-</nav>
-
-<main>
-  <section id="produkArea"></section>
-</main>
-
-<!-- Modal detail -->
-<div id="modal" class="modal" aria-hidden="true">
-  <div class="panel" role="dialog" aria-modal="true">
-    <div class="left">
-      <img id="modalImg" src="" alt="">
-    </div>
-    <div class="right">
-      <div style="display:flex;align-items:center;gap:10px">
-        <div class="title" id="modalTitle">Nama Produk</div>
-        <button class="close" onclick="closeModal()">Tutup</button>
-      </div>
-      <div class="price" id="modalPrice">Rp 0</div>
-      <div class="specs" id="modalSpecs">Spesifikasi lengkap muncul di sini.</div>
-      <div style="margin-top:auto; display:flex; gap:8px">
-        <button class="btn primary" onclick="closeModal()">Tutup</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-/* DATA PRODUK (edit / tambahkan sesuai kebutuhan)
-   Pastikan gambar .jpg berada di folder yang sama:
-   emas1000.jpg, emas500.jpg, ... mobil1.jpg .. mobil12.jpg, tas1.jpg..tas5.jpg, jam1.jpg..jam8.jpg
-*/
-  mobil: [
-    { id:'mobil1', name:'2025 Toyota Land Cruiser 3.3 300 GR-S 4X4 (Premium Colour) SUV', price:'Rp 1.530.000.000', img:'mobil1.jpg', spec:
-`Transmisi: Automatic
-Jumlah Gir: 10
-Tipe Gir: 10-Speed Direct Automatic Transmission
-Pintu: 5
-Kapasitas Kursi: 7
-Engine CC: 3346
-HP: 305
-NM: 700
-Injeksi: Direct Injection
-Aspirasi: Turbocharged
-Bahan Bakar: Diesel
-Tipe Setir: Rack & Pinion
-Dimensi (P x L x T mm): 4965 x 1990 x 1945
-Jarak Roda (mm): 2850
-Track Depan / Belakang (mm): 1667 / 1668
-Tangki Bahan Bakar (L): 110`},
-    { id:'mobil2', name:'2025 Toyota Voxy 2.0 (Premium Color) MPV', price:'Rp 240.000.000', img:'mobil2.jpg', spec:
-`Transmisi: Automatic
-Tipe Gir: CVT
-Pintu: 5
-Kapasitas Kursi: 7
-Engine CC: 1986
-HP: 170
-NM: 202
-Injeksi: EFI
-Aspirasi: Naturally Aspirated
-Bahan Bakar: Petrol
-Dimensi (P x L x T mm): 4695 x 1730 x 1855
-Jarak Roda (mm): 2850
-Tangki Bahan Bakar (L): 52`},
-    { id:'mobil3', name:'2025 Toyota Kijang Innova Zenix 2.0 Q HV TSS Modellista', price:'Rp 330.000.000', img:'mobil3.jpg', spec:
-`Transmisi: Automatic (CVT)
-Pintu: 5
-Kapasitas Kursi: 8
-Engine CC: 1987
-HP: 152
-NM: 187
-Injeksi: Direct Injection
-Aspirasi: Naturally Aspirated
-Bahan Bakar: Petrol
-Dimensi (P x L x T mm): 4755 x 1850 x 1795
-Jarak Roda (mm): 2850
-Track Depan / Belakang (mm): 1550 / 1570
-Tangki Bahan Bakar (L): 52`},
-    { id:'mobil4', name:'2025 Honda Accord 2.0 RS e:HEV Sedan', price:'Rp 550.000.000', img:'mobil4.jpg', spec:
-`Transmisi: Automatic (E-CVT)
-Pintu: 4
-Kapasitas Kursi: 5
-Engine CC: 1993
-HP: 145
-NM: 179
-Injeksi: Fuel Injection
-Aspirasi: Turbocharged / Hybrid
-Bahan Bakar: Hybrid
-Dimensi (P x L x T mm): 4962 x 1862 x 1449
-Jarak Roda (mm): 2830
-Track Depan / Belakang (mm): 1591 / 1613`},
-    { id:'mobil5', name:'2024 Honda BR-V 1.5 Prestige (Honda Sensing)', price:'Rp 183.000.000', img:'mobil5.jpg', spec:
-`Transmisi: Automatic (CVT)
-Jumlah Gir: 7
-Pintu: 5
-Kapasitas Kursi: 7
-Engine CC: 1498
-HP: 121
-NM: 145
-Injeksi: Fuel Injection
-Aspirasi: Naturally Aspirated
-Bahan Bakar: Petrol
-Dimensi (P x L x T mm): 4490 x 1780 x 1685
-Jarak Roda (mm): 2700
-Track Depan / Belakang (mm): 1540 / 1540`},
-    { id:'mobil6', name:'2025 Honda Civic 2.0 RS e:HEV Sedan', price:'Rp 420.000.000', img:'mobil6.jpg', spec:
-`Transmisi: Automatic (e-CVT)
-Pintu: 4
-Kapasitas Kursi: 5
-Engine CC: 1993
-HP: 141
-NM: 182
-Injeksi: Direct FI
-Bahan Bakar: Petrol
-Dimensi (P x L x T mm): 4681 x 1802 x 1415
-Jarak Roda (mm): 2735
-Tangki Bahan Bakar (L): 40
-Setir: Electronic Power Steering
-Velg Depan / Belakang (inci): 17 / 17`},
-    { id:'mobil7', name:'2024 Mercedes-Benz C300 2.0 AMG Line Sedan', price:'Rp 875.000.000', img:'mobil7.jpg', spec:
-`Transmisi: Automatic (9G-Tronic)
-Jumlah Gir: 9
-Pintu: 4
-Kapasitas Kursi: 5
-Engine CC: 1999
-HP: 258
-NM: 400
-Injeksi: Direct Injection
-Aspirasi: Turbocharged
-Bahan Bakar: Petrol
-Konsumsi (L/100km): 7.4
-Emisi CO2: 168 g/km
-Top Speed (km/h): 250
-Dimensi (P x L x T mm): 4793 x 2054 x 1446
-Jarak Roda (mm): 2865
-Berat Kosong (kg): 1675
-Tangki (L): 66`},
-    { id:'mobil8', name:'2024 Mercedes-Benz A200 1.3 Progressive Line Sedan', price:'Rp 520.000.000', img:'mobil8.jpg', spec:
-`Transmisi: Automatic (7G DCT)
-Jumlah Gir: 7
-Pintu: 4
-Kapasitas Kursi: 5
-Engine CC: 1332
-HP: 163
-NM: 270
-Aspirasi: Turbocharged
-Bahan Bakar: Petrol
-Konsumsi (L/100km): 6.3
-Emisi CO2: 130 g/km
-Top Speed (km/h): 230
-Dimensi (P x L x T mm): 4558 x 1992 x 1446
-Berat Kosong (kg): 1450
-Velg (inci): 18`},
-    { id:'mobil9', name:'2025 Mitsubishi Xpander 1.5 Ultimate MPV', price:'Rp 202.000.000', img:'mobil9.jpg', spec:
-`Transmisi: Automatic (CVT)
-Pintu: 5
-Kapasitas Kursi: 7
-Engine CC: 1499
-HP: 105
-NM: 141
-Bahan Bakar: Petrol
-Dimensi (P x L x T mm): 4595 x 1750 x 1750
-Tangki (L): 45`},
-    { id:'mobil10', name:'2025 Mitsubishi Pajero Sport 2.4 Dakar Ultimate 4X4 SUV', price:'Rp 397.000.000', img:'mobil10.jpg', spec:
-`Transmisi: Automatic (8-Speed)
-Jumlah Gir: 8
-Pintu: 5
-Kapasitas Kursi: 7
-Engine CC: 2442
-HP: 181
-NM: 430
-Injeksi: Direct FI
-Aspirasi: Turbocharged
-Bahan Bakar: Diesel
-Dimensi (P x L x T mm): 4840 x 1815 x 1835
-Tangki (L): 68`},
-    { id:'mobil11', name:'2024 BMW 520i 2.0 M Sport Sedan', price:'Rp 792.000.000', img:'mobil11.jpg', spec:
-`Transmisi: Automatic (8-Speed Steptronic)
-Jumlah Gir: 8
-Pintu: 4
-Kapasitas Kursi: 5
-Engine CC: 1998
-HP: 184
-NM: 290
-Injeksi: Direct FI
-Aspirasi: Turbocharged
-Dimensi (P x L x T mm): 5060 x 1900 x 1515
-Jarak Roda (mm): 2900
-Tangki (L): 70`},
-    { id:'mobil12', name:'2025 Mazda 3 2.0 SKYACTIV-G Hatchback', price:'Rp 350.000.000', img:'mobil12.jpg', spec:
-`Transmisi: Automatic (6-speed)
-Jumlah Gir: 6
-Pintu: 5
-Kapasitas Kursi: 5
-Engine CC: 1998
-HP: 155
-NM: 200
-Aspirasi: Naturally Aspirated
-Bahan Bakar: Petrol
-Konsumsi (L/100km): 5.6
-Emisi CO2: 136 g/km
-Top Speed (km/h): 240
-Dimensi (P x L x T mm): 4660 x 1765 x 1435
-Jarak Roda (mm): 2725
-Boot (L): 460
-Tangki (L): 51` }
-  ],
-  tas: [
-    { id:'tas1', name:'Hermès Kelly 25 Noir (Black)', price:'Rp 220.000.000', img:'tas1.jpg', spec:'Model: Hermès Kelly 25\nWarna: Noir (Hitam)\nBahan: Kulit Togo\nUkuran: 25 cm\nKelengkapan: Dustbag, Box, Kartu' },
-    { id:'tas2', name:'Hermès Birkin 30 Natural Togo', price:'Rp 240.000.000', img:'tas2.jpg', spec:'Model: Hermès Birkin 30\nWarna: Natural\nBahan: Clemence/Togo\nUkuran: 30 cm\nKelengkapan: Dustbag, Box' },
-    { id:'tas3', name:'Hermès Kelly 28 Gold / Etoupe', price:'Rp 185.000.000', img:'tas3.jpg', spec:'Model: Hermès Kelly 28\nWarna: Gold / Etoupe\nBahan: Swift / Togo\nUkuran: 28 cm\nKelengkapan: Dustbag, Box, Strap' },
-    { id:'tas4', name:'Hermès Kelly 20 Rose (Coral)', price:'Rp 160.000.000', img:'tas4.jpg', spec:'Model: Hermès Kelly 20\nWarna: Rose (Coral)\nBahan: Swift\nUkuran: 20 cm\nKelengkapan: Dustbag' },
-    { id:'tas5', name:'Hermès Birkin 25 Black', price:'Rp 210.000.000', img:'tas5.jpg', spec:'Model: Hermès Birkin 25\nWarna: Black\nBahan: Epsom / Togo\nUkuran: 25 cm\nKelengkapan: Dustbag, Box' }
-  ],
-  jam: [
-    { id:'jam1', name:'Patek Philippe Calatrava 6007G-001 Black', price:'Rp 285.000.000', img:'jam1.jpg', spec:'Tahun: 2025\nKondisi: Baru (100%)\nPergerakan: Otomatis\nBahan Kasus: Emas Putih\nUkuran Kasus: 40 mm\nTahan Air: 30 m\nBahan Gelang: Kulit\nKelengkapan: Kotak & Kertas\nSKU: 0015605' },
-    { id:'jam2', name:'Rolex Day-Date 40 Hijau Zaitun Everose Gold', price:'Rp 489.000.000', img:'jam2.jpg', spec:'Kode Daftar: PLA4R4\nMerek: Rolex\nModel: Day-Date 40\nRef: 228235\nPergerakan: Otomatis\nBahan Kasus: Emas Mawar' },
-    { id:'jam3', name:'Rolex 1908 White Dial 52508-0006', price:'Rp 369.000.000', img:'jam3.jpg', spec:'Kode Daftar: PA7KE4\nMerek: Rolex\nModel: 1908\nRef: 52508\nPergerakan: Otomatis\nBahan Kasus: Emas Kuning\nKondisi: Baru' },
-    { id:'jam4', name:'Rolex Lady-Datejust 28 Silver Diamond', price:'Rp 220.000.000', img:'jam4.jpg', spec:'Kode Daftar: PPDGS6\nMerek: Rolex\nModel: Lady-Datejust\nRef: 279384RBR\nPergerakan: Otomatis\nBahan Kasus: Emas/Baja\nKondisi: Baru' },
-    { id:'jam5', name:'Patek Philippe Golden Ellipse 5738R-001', price:'Rp 440.000.000', img:'jam5.jpg', spec:'Kode Daftar: PU9H98\nMerek: Patek Philippe\nModel: Golden Ellipse\nRef: 5738R-001' },
-    { id:'jam6', name:'Patek Philippe Twenty~4 7300/1200A-001', price:'Rp 264.000.000', img:'jam6.jpg', spec:'Kode Daftar: DRCH59\nMerek: Patek Philippe\nModel: Twenty~4\nRef: 7300/1200A-001' },
-    { id:'jam7', name:'Cartier Santos De Santos Steel Skeleton 2022', price:'Rp 225.000.000', img:'jam7.jpg', spec:'Kode Daftar: PPGNA0\nMerek: Cartier\nModel: Santos\nRef: WHSA0015\nPergerakan: Manual' },
-    { id:'jam8', name:'Cartier Santos Skeleton De Cartier 2024', price:'Rp 294.000.000', img:'jam8.jpg', spec:'Kode Daftar: LRKBP3\nMerek: Cartier\nModel: Santos\nRef: WHSA0015\nPergerakan: Manual' }
-  ]
-};
-
-/* RENDER */
-const produkArea = document.getElementById('produkArea');
-const tabs = document.querySelectorAll('.tab-btn');
-
-function renderCategory(catKey){
-  produkArea.innerHTML = '';
-  const header = document.createElement('div');
-  header.innerHTML = `<h2 style="margin:0;color:var(--kpknl-blue);text-transform:uppercase">Kategori: ${catKey}</h2>`;
-  produkArea.appendChild(header);
-
-  const grid = document.createElement('div');
-  grid.className = 'grid';
-
-  const list = products[catKey] || [];
-  if(list.length === 0){
-    grid.innerHTML = `<div style="grid-column:1/-1;padding:24px;background:#fff;border-radius:10px;text-align:center">Belum ada produk di kategori ini.</div>`;
-  } else {
-    list.forEach(p=>{
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <img src="${p.img}" alt="${escapeHtml(p.name)}" onerror="this.style.opacity=.5;this.alt='gambar tidak tersedia'">
-        <div class="body">
-          <div class="title">${escapeHtml(p.name)}</div>
-          <div class="desc">${p.unit ? escapeHtml(p.unit) : ''}</div>
-          <div class="price">${escapeHtml(p.price)}</div>
-          <div class="actions">
-            <button class="btn primary" data-id="${p.id}" data-cat="${catKey}">Detail Produk</button>
-            <button class="btn ghost">Salin Info</button>
-          </div>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  produkArea.appendChild(grid);
-
-  // attach detail listeners
-  document.querySelectorAll('.btn.primary').forEach(btn=>{
-    btn.addEventListener('click', (e)=>{
-      const id = btn.dataset.id;
-      const cat = btn.dataset.cat;
-      const item = (products[cat] || []).find(x=>x.id===id);
-      if(item) openModal(item);
-    });
-  });
-
-  // attach copy listeners
-  document.querySelectorAll('.btn.ghost').forEach((btn, idx)=>{
-    btn.addEventListener('click', ()=>{
-      const card = btn.closest('.card');
-      const title = card.querySelector('.title').innerText;
-      const price = card.querySelector('.price').innerText;
-      const desc = card.querySelector('.desc').innerText;
-      const txt = `${title}\n${desc}\nHarga: ${price}`;
-      navigator.clipboard?.writeText(txt).then(()=> {
-        btn.innerText = 'Tersalin';
-        setTimeout(()=> btn.innerText='Salin Info', 1500);
-      }).catch(()=> {
-        alert('Gagal menyalin. Silakan copy manual.');
-      });
-    });
-  });
-
+/* responsive */  
+@media(max-width:840px){  
+  .modal .panel{ flex-direction:column; max-width:640px }  
+  header{ flex-direction:column; align-items:flex-start; gap:8px }  
+  header .logo{ width:74px;height:74px }  
 }
 
-/* TABS */
-tabs.forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    tabs.forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    renderCategory(btn.dataset.cat);
-    window.scrollTo({top:0, behavior:'smooth'});
-  });
-});
-
-/* MODAL */
-const modal = document.getElementById('modal');
-function openModal(product){
-  document.getElementById('modalImg').src = product.img;
-  document.getElementById('modalImg').alt = product.name;
-  document.getElementById('modalTitle').innerText = product.name;
-  document.getElementById('modalPrice').innerText = product.price || '';
-  document.getElementById('modalSpecs').innerText = product.spec || '';
-  modal.style.display = 'flex';
-  modal.setAttribute('aria-hidden','false');
-}
-function closeModal(){
-  modal.style.display = 'none';
-  modal.setAttribute('aria-hidden','true');
-}
-
-/* helper */
-function escapeHtml(s){
-  if(!s) return '';
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
-/* close modal clicking outside or ESC */
-modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
-document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
-
-/* initial render */
-renderCategory('emas');
-</script>
-</body>
+  </style>  
+</head>  
+<body>  <header>  
+  <div class="brand">  
+    <div class="logo" aria-hidden="true">  
+      <img src="djkn.jpg" alt="Logo DJKN">  
+    </div>  
+    <div>  
+      <h1>KEMENTERIAN KEUANGAN - KPKNL</h1>  
+      <p>Kantor Pelayanan Kekayaan Negara dan Lelang</p>  
+    </div>  
+  </div>  
+</header>  <nav class="nav" role="navigation" aria-label="Kategori">  
+  <button class="tab-btn active" data-cat="emas">Emas</button>  
+  <button class="tab-btn" data-cat="mobil">Mobil</button>  
+  <button class="tab-btn" data-cat="tas">Tas Branded</button>  
+  <button class="tab-btn" data-cat="jam">Jam Tangan</button>  
+</nav>  <main>  
+  <section id="produkArea"></section>  
+</main>  <!-- Modal detail -->  <div id="modal" class="modal" aria-hidden="true">  
+  <div class="panel" role="dialog" aria-modal="true">  
+    <div class="left">  
+      <img id="modalImg" src="" alt="">  
+    </div>  
+    <div class="right">  
+      <div style="display:flex;align-items:center;gap:10px">  
+        <div class="title" id="modalTitle">Nama Produk</div>  
+        <button class="close" onclick="closeModal()">Tutup</button>  
+      </div>  
+      <div class="price" id="modalPrice">Rp 0</div>  
+      <div class="specs" id="modalSpecs">Spesifikasi lengkap muncul di sini.</div>  
+      <div style="margin-top:auto; display:flex; gap:8px">  
+        <button class="btn primary" onclick="closeModal()">Tutup</button>  
+      </div>  
+    </div>  
+  </div>  
+</div>  <script>  
+/* DATA PRODUK (edit / tambahkan sesuai kebutuhan)  
+   Pastikan gambar .jpg berada di folder yang sama:  
+   emas1000.jpg, emas500.jpg, ... mobil1.jpg .. mobil12.jpg, tas1.jpg..tas5.jpg, jam1.jpg..jam8.jpg  
+*/  
+const products = {  
+  emas: [  
+    { id:'emas1000', name:'Logam Mulia Antam 1000 Gram', unit:'1000 Gram', price:'Rp 1.900.000.000', img:'emas1000.jpg', spec:'Fine Gold: 999.9 | Sertifikat: LBMA | Berat: 1000 g' },  
+    { id:'emas500',  name:'Logam Mulia Antam 500 Gram',  unit:'500 Gram', price:'Rp 950.000.000',  img:'emas500.jpg',  spec:'Fine Gold: 999.9 | Sertifikat: LBMA | Berat: 500 g' },  
+    { id:'emas250',  name:'Logam Mulia Antam 250 Gram',  unit:'250 Gram', price:'Rp 475.000.000',  img:'emas250.jpg',  spec:'Fine Gold: 999.9 | Sertifikat: LBMA | Berat: 250 g' },  
+    { id:'emas100',  name:'Logam Mulia Antam 100 Gram',  unit:'100 Gram', price:'Rp 190.000.000',  img:'emas100.jpg',  spec:'Fine Gold: 999.9 | Sertifikasi: CertiEye | Berat: 100 g' },  
+    { id:'emas50',   name:'Logam Mulia Antam 50 Gram',   unit:'50 Gram',  price:'Rp 95.000.000',   img:'emas50.jpg',   spec:'Fine Gold: 999.9 | Sertifikasi: CertiEye | Berat: 50 g' },  
+    { id:'emas25',   name:'Logam Mulia Antam 25 Gram',   unit:'25 Gram',  price:'Rp 47.500.000',   img:'emas25.jpg',   spec:'Fine Gold: 999.9 | Sertifikasi: CertiEye | Berat: 25 g' },  
+    { id:'emas10',   name:'Logam Mulia Antam 10 Gram',   unit:'10 Gram',  price:'Rp 19.000.000',   img:'emas10.jpg',   spec:'Fine Gold: 999.9 | Sertifikasi: CertiEye | Berat: 10 g' }  
+  ],  
+  mobil: [  
+    { id:'mobil1', name:'2025 Toyota Land Cruiser 3.3 300 GR-S 4X4 (Premium Colour) SUV', price:'Rp 1.530.000.000', img:'mobil1.jpg', spec:  
+`Transmisi: Automatic  
+Jumlah Gir: 10  
+Tipe Gir: 10-Speed Direct Automatic Transmission  
+Pintu: 5  
+Kapasitas Kursi: 7  
+Engine CC: 3346  
+HP: 305  
+NM: 700  
+Injeksi: Direct Injection  
+Aspirasi: Turbocharged  
+Bahan Bakar: Diesel  
+Tipe Setir: Rack & Pinion  
+Dimensi (P x L x T mm): 4965 x 1990 x 1945  
+Jarak Roda (mm): 2850  
+Track Depan / Belakang (mm): 1667 / 1668  
+Tangki Bahan Bakar (L): 110`},  
+    { id:'mobil2', name:'2025 Toyota Voxy 2.0 (Premium Color) MPV', price:'Rp 240.000.000', img:'mobil2.jpg', spec:  
+`Transmisi: Automatic  
+Tipe Gir: CVT  
+Pintu: 5  
+Kapasitas Kursi: 7  
+Engine CC: 1986  
+HP: 170  
+NM: 202  
+Injeksi: EFI  
+Aspirasi: Naturally Aspirated  
+Bahan Bakar: Petrol  
+Dimensi (P x L x T mm): 4695 x 1730 x 1855  
+Jarak Roda (mm): 2850  
+Tangki Bahan Bakar (L): 52`},  
+    { id:'mobil3', name:'2025 Toyota Kijang Innova Zenix 2.0 Q HV TSS Modellista', price:'Rp 330.000.000', img:'mobil3.jpg', spec:  
+`Transmisi: Automatic (CVT)  
+Pintu: 5  
+Kapasitas Kursi: 8  
+Engine CC: 1987  
+HP: 152  
+NM: 187  
+Injeksi: Direct Injection  
+Aspirasi: Naturally Aspirated  
+Bahan Bakar: Petrol  
+Dimensi (P x L x T mm): 4755 x 1850 x 1795  
+Jarak Roda (mm): 2850  
+Track Depan / Belakang (mm): 1550 / 1570  
+Tangki Bahan Bakar (L): 52`},  
+    { id:'mobil4', name:'2025 Honda Accord 2.0 RS e:HEV Sedan', price:'Rp 550.000.000', img:'mobil4.jpg', spec:  
+`Transmisi: Automatic (E-CVT)  
+Pintu: 4  
+Kapasitas Kursi: 5  
+Engine CC: 1993  
+HP: 145  
+NM: 179  
+Injeksi: Fuel Injection  
+Aspirasi: Turbocharged / Hybrid  
+Bahan Bakar: Hybrid  
+Dimensi (P x L x T mm): 4962 x 1862 x 1449  
+Jarak Roda (mm): 2830  
+Track Depan / Belakang (mm): 1591 / 1613`},  
+    { id:'mobil5', name:'2024 Honda BR-V 1.5 Prestige (Honda Sensing)', price:'Rp 183.000.000', img:'mobil5.jpg', spec:  
+`Transmisi: Automatic (CVT)  
+Jumlah Gir: 7  
+Pintu: 5  
+Kapasitas Kursi: 7  
+Engine CC: 1498  
+HP: 121  
+NM: 145  
+Injeksi: Fuel Injection  
+Aspirasi: Naturally Aspirated  
+Bahan Bakar: Petrol  
+Dimensi (P x L x T mm): 4490 x 1780 x 1685  
+Jarak Roda (mm): 2700  
+Track Depan / Belakang (mm): 1540 / 1540`},  
+    { id:'mobil6', name:'2025 Honda Civic 2.0 RS e:HEV Sedan', price:'Rp 420.000.000', img:'mobil6.jpg', spec:  
+`Transmisi: Automatic (e-CVT)  
+Pintu: 4  
+Kapasitas Kursi: 5  
+Engine CC: 1993  
+HP: 141  
+NM: 182  
+Injeksi: Direct FI  
+Bahan Bakar: Petrol  
+Dimensi (P x L x T mm): 4681 x 1802 x 1415  
+Jarak Roda (mm): 2735  
+Tangki Bahan Bakar (L): 40  
+Setir: Electronic Power Steering  
+Velg Depan / Belakang (inci): 17 / 17`},  
+    { id:'mobil7', name:'2024 Mercedes-Benz C300 2.0 AMG Line Sedan', price:'Rp 875.000.000', img:'mobil7.jpg', spec:  
+`Transmisi: Automatic (9G-Tronic)  
+Jumlah Gir: 9  
+Pintu: 4  
+Kapasitas Kursi: 5  
+Engine CC: 1999  
+HP: 258  
+NM: 400  
+Injeksi: Direct Injection  
+Aspirasi: Turbocharged  
+Bahan Bakar: Petrol  
+Konsumsi (L/100km): 7.4  
+Emisi CO2: 168 g/km  
+Top Speed (km/h): 250  
+Dimensi (P x L x T mm): 4793 x 2054 x 1446  
+Jarak Roda (mm): 2865  
+Berat Kosong (kg): 1675  
+Tangki (L): 66`},  
+    { id:'mobil8', name:'2024 Mercedes-Benz A200 1.3 Progressive Line Sedan', price:'Rp 520.000.000', img:'mobil8.jpg', spec:  
+`Transmisi: Automatic (7G DCT)  
+Jumlah Gir: 7  
+Pintu: 4  
+Kapasitas Kursi: 5  
+Engine CC: 1332  
+HP: 163  
+NM: 270  
+Aspirasi: Turbocharged  
+Bahan Bakar: Petrol  
+Konsumsi (L/100km): 6.3  
+Emisi CO2: 130 g/km  
+Top Speed (km/h): 230  
+Dimensi (P x L x T mm): 4558 x 1992 x 1446  
+Berat Kosong (kg): 1450  
+Velg (inci): 18`},  
+    { id:'mobil9', name:'2025 Mitsubishi Xpander 1.5 Ultimate MPV', price:'Rp 202.000.000', img:'mobil9.jpg', spec:  
+`Transmisi: Automatic (CVT)  
+Pintu: 5  
+Kapasitas Kursi: 7  
+Engine CC: 1499  
+HP: 105  
+NM: 141  
+Bahan Bakar: Petrol  
+Dimensi (P x L x T mm): 4595 x 1750 x 1750  
+Tangki (L): 45`},  
+    { id:'mobil10', name:'2025 Mitsubishi Pajero Sport 2.4 Dakar Ultimate 4X4 SUV', price:'Rp 397.000.000', img:'mobil10.jpg', spec:  
+`Transmisi: Automatic (8-Speed)  
+Jumlah Gir: 8  
+Pintu: 5  
+Kapasitas Kursi: 7  
+Engine CC: 2442  
+HP: 181  
+NM: 430  
+Injeksi: Direct FI  
+Aspirasi: Turbocharged  
+Bahan Bakar: Diesel  
+Dimensi (P x L x T mm): 4840 x 1815 x 1835  
+Tangki (L): 68`},  
+    { id:'mobil11', name:'2024 BMW 520i 2.0 M Sport Sedan', price:'Rp 792.000.000', img:'mobil11.jpg', spec:  
+`Transmisi: Automatic (8-Speed Steptronic)  
+Jumlah Gir: 8  
+Pintu: 4  
+Kapasitas Kursi: 5  
+Engine CC: 1998  
+HP: 184  
+NM: 290  
+Injeksi: Direct FI  
+Aspirasi: Turbocharged  
+Dimensi (P x L x T mm): 5060 x 1900 x 1515  
+Jarak Roda (mm): 2900  
+Tangki (L): 70`},  
+    { id:'mobil12', name:'2025 Mazda 3 2.0 SKYACTIV-G Hatchback', price:'Rp 350.000.000', img:'mobil12.jpg', spec:  
+`Transmisi: Automatic (6-speed)  
+Jumlah Gir: 6  
+Pintu: 5  
+Kapasitas Kursi: 5  
+Engine CC: 1998  
+HP: 155  
+NM: 200  
+Aspirasi: Naturally Aspirated  
+Bahan Bakar: Petrol  
+Konsumsi (L/100km): 5.6  
+Emisi CO2: 136 g/km  
+Top Speed (km/h): 240  
+Dimensi (P x L x T mm): 4660 x 1765 x 1435  
+Jarak Roda (mm): 2725  
+Boot (L): 460  
+Tangki (L): 51` }  
+  ],  
+  tas: [  
+    { id:'tas1', name:'Hermès Kelly 25 Noir (Black)', price:'Rp 220.000.000', img:'tas1.jpg', spec:'Model: Hermès Kelly 25\nWarna: Noir (Hitam)\nBahan: Kulit Togo\nUkuran: 25 cm\nKelengkapan: Dustbag, Box, Kartu' },  
+    { id:'tas2', name:'Hermès Birkin 30 Natural Togo', price:'Rp 240.000.000', img:'tas2.jpg', spec:'Model: Hermès Birkin 30\nWarna: Natural\nBahan: Clemence/Togo\nUkuran: 30 cm\nKelengkapan: Dustbag, Box' },  
+    { id:'tas3', name:'Hermès Kelly 28 Gold / Etoupe', price:'Rp 185.000.000', img:'tas3.jpg', spec:'Model: Hermès Kelly 28\nWarna: Gold / Etoupe\nBahan: Swift / Togo\nUkuran: 28 cm\nKelengkapan: Dustbag, Box, Strap' },  
+    { id:'tas4', name:'Hermès Kelly 20 Rose (Coral)', price:'Rp 160.000.000', img:'tas4.jpg', spec:'Model: Hermès Kelly 20\nWarna: Rose (Coral)\nBahan: Swift\nUkuran: 20 cm\nKelengkapan: Dustbag' },  
+    { id:'tas5', name:'Hermès Birkin 25 Black', price:'Rp 210.000.000', img:'tas5.jpg', spec:'Model: Hermès Birkin 25\nWarna: Black\nBahan: Epsom / Togo\nUkuran: 25 cm\nKelengkapan: Dustbag, Box' }  
+  ],  
+  jam: [  
+    { id:'jam1', name:'Patek Philippe Calatrava 6007G-001 Black', price:'Rp 285.000.000', img:'jam1.jpg', spec:'Tahun: 2025\nKondisi: Baru (100%)\nPergerakan: Otomatis\nBahan Kasus: Emas Putih\nUkuran Kasus: 40 mm\nTahan Air: 30 m\nBahan Gelang: Kulit\nKelengkapan: Kotak & Kertas\nSKU: 0015605' },  
+    { id:'jam2', name:'Rolex Day-Date 40 Hijau Zaitun Everose Gold', price:'Rp 489.000.000', img:'jam2.jpg', spec:'Kode Daftar: PLA4R4\nMerek: Rolex\nModel: Day-Date 40\nRef: 228235\nPergerakan: Otomatis\nBahan Kasus: Emas Mawar' },  
+    { id:'jam3', name:'Rolex 1908 White Dial 52508-0006', price:'Rp 369.000.000', img:'jam3.jpg', spec:'Kode Daftar: PA7KE4\nMerek: Rolex\nModel: 1908\nRef: 52508\nPergerakan: Otomatis\nBahan Kasus: Emas Kuning\nKondisi: Baru' },  
+    { id:'jam4', name:'Rolex Lady-Datejust 28 Silver Diamond', price:'Rp 220.000.000', img:'jam4.jpg', spec:'Kode Daftar: PPDGS6\nMerek: Rolex\nModel: Lady-Datejust\nRef: 279384RBR\nPergerakan: Otomatis\nBahan Kasus: Emas/Baja\nKondisi: Baru' },  
+    { id:'jam5', name:'Patek Philippe Golden Ellipse 5738R-001', price:'Rp 440.000.000', img:'jam5.jpg', spec:'Kode Daftar: PU9H98\nMerek: Patek Philippe\nModel: Golden Ellipse\nRef: 5738R-001' },  
+    { id:'jam6', name:'Patek Philippe Twenty~4 7300/1200A-001', price:'Rp 264.000.000', img:'jam6.jpg', spec:'Kode Daftar: DRCH59\nMerek: Patek Philippe\nModel: Twenty~4\nRef: 7300/1200A-001' },  
+    { id:'jam7', name:'Cartier Santos De Santos Steel Skeleton 2022', price:'Rp 225.000.000', img:'jam7.jpg', spec:'Kode Daftar: PPGNA0\nMerek: Cartier\nModel: Santos\nRef: WHSA0015\nPergerakan: Manual' },  
+    { id:'jam8', name:'Cartier Santos Skeleton De Cartier 2024', price:'Rp 294.000.000', img:'jam8.jpg', spec:'Kode Daftar: LRKBP3\nMerek: Cartier\nModel: Santos\nRef: WHSA0015\nPergerakan: Manual' }  
+  ]  
+};  
+  
+/* RENDER */  
+const produkArea = document.getElementById('produkArea');  
+const tabs = document.querySelectorAll('.tab-btn');  
+  
+function renderCategory(catKey){  
+  produkArea.innerHTML = '';  
+  const header = document.createElement('div');  
+  header.innerHTML = `<h2 style="margin:0;color:var(--kpknl-blue);text-transform:uppercase">Kategori: ${catKey}</h2>`;  
+  produkArea.appendChild(header);  
+  
+  const grid = document.createElement('div');  
+  grid.className = 'grid';  
+  
+  const list = products[catKey] || [];  
+  if(list.length === 0){  
+    grid.innerHTML = `<div style="grid-column:1/-1;padding:24px;background:#fff;border-radius:10px;text-align:center">Belum ada produk di kategori ini.</div>`;  
+  } else {  
+    list.forEach(p=>{  
+      const card = document.createElement('div');  
+      card.className = 'card';  
+      card.innerHTML = `  
+        <img src="${p.img}" alt="${escapeHtml(p.name)}" onerror="this.style.opacity=.5;this.alt='gambar tidak tersedia'">  
+        <div class="body">  
+          <div class="title">${escapeHtml(p.name)}</div>  
+          <div class="desc">${p.unit ? escapeHtml(p.unit) : ''}</div>  
+          <div class="price">${escapeHtml(p.price)}</div>  
+          <div class="actions">  
+            <button class="btn primary" data-id="${p.id}" data-cat="${catKey}">Detail Produk</button>  
+            <button class="btn ghost">Salin Info</button>  
+          </div>  
+        </div>  
+      `;  
+      grid.appendChild(card);  
+    });  
+  }  
+  
+  produkArea.appendChild(grid);  
+  
+  // attach detail listeners  
+  document.querySelectorAll('.btn.primary').forEach(btn=>{  
+    btn.addEventListener('click', (e)=>{  
+      const id = btn.dataset.id;  
+      const cat = btn.dataset.cat;  
+      const item = (products[cat] || []).find(x=>x.id===id);  
+      if(item) openModal(item);  
+    });  
+  });  
+  
+  // attach copy listeners  
+  document.querySelectorAll('.btn.ghost').forEach((btn, idx)=>{  
+    btn.addEventListener('click', ()=>{  
+      const card = btn.closest('.card');  
+      const title = card.querySelector('.title').innerText;  
+      const price = card.querySelector('.price').innerText;  
+      const desc = card.querySelector('.desc').innerText;  
+      const txt = `${title}\n${desc}\nHarga: ${price}`;  
+      navigator.clipboard?.writeText(txt).then(()=> {  
+        btn.innerText = 'Tersalin';  
+        setTimeout(()=> btn.innerText='Salin Info', 1500);  
+      }).catch(()=> {  
+        alert('Gagal menyalin. Silakan copy manual.');  
+      });  
+    });  
+  });  
+  
+}  
+  
+/* TABS */  
+tabs.forEach(btn=>{  
+  btn.addEventListener('click', ()=>{  
+    tabs.forEach(b=>b.classList.remove('active'));  
+    btn.classList.add('active');  
+    renderCategory(btn.dataset.cat);  
+    window.scrollTo({top:0, behavior:'smooth'});  
+  });  
+});  
+  
+/* MODAL */  
+const modal = document.getElementById('modal');  
+function openModal(product){  
+  document.getElementById('modalImg').src = product.img;  
+  document.getElementById('modalImg').alt = product.name;  
+  document.getElementById('modalTitle').innerText = product.name;  
+  document.getElementById('modalPrice').innerText = product.price || '';  
+  document.getElementById('modalSpecs').innerText = product.spec || '';  
+  modal.style.display = 'flex';  
+  modal.setAttribute('aria-hidden','false');  
+}  
+function closeModal(){  
+  modal.style.display = 'none';  
+  modal.setAttribute('aria-hidden','true');  
+}  
+  
+/* helper */  
+function escapeHtml(s){  
+  if(!s) return '';  
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');  
+}  
+  
+/* close modal clicking outside or ESC */  
+modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });  
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });  
+  
+/* initial render */  
+renderCategory('emas');  
+</script>  </body>  
 </html>
